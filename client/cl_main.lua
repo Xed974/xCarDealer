@@ -105,7 +105,7 @@ local function MenuConcessionnaire()
                                 RageUI.Info(("~r~%s~s~"):format(v.name),{"Prix:", "Coffre:"}, {("~g~%s$~s~"):format(v.price), ("~r~%skg~s~"):format(weight)})
                             end,
                             onSelected = function()
-                                table.insert(select, {name = v.name, model = v.model, price = v.price})
+                                table.insert(select, {name = v.name, model = v.model, price = v.price, category = v.category})
                             end
                         }, selection)
                     end
@@ -114,7 +114,7 @@ local function MenuConcessionnaire()
                     for _,v in pairs(select) do
                         RageUI.Button(("Tester le véhicule (~r~%smin~s~)"):format(xCarDealer.TimeForTest), nil, {RightLabel = "→"}, true, {
                             onActive = function()
-                                if v.model ~= "motorcycles" then
+                                if v.category ~= "motorcycles" then
                                     heading = heading + 0.02
                                     SetEntityHeading(entity, heading)
                                 end
@@ -162,6 +162,7 @@ local function MenuConcessionnaire()
                                             SetPedIntoVehicle(PlayerPedId(), car, -1)
                                             RageUI.CloseAll()
                                             FreezeEntityPosition(PlayerPedId(), false)
+                                            TriggerServerEvent("xKeys:addKeys", GetVehicleNumberPlateText(car), GetDisplayNameFromVehicleModel(GetEntityModel(car)))
                                         end
                                     end, vehicle, tonumber(v.price))
                                 end
