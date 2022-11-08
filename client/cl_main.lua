@@ -114,8 +114,10 @@ local function MenuConcessionnaire()
                     for _,v in pairs(select) do
                         RageUI.Button(("Tester le véhicule (~r~%smin~s~)"):format(xCarDealer.TimeForTest), nil, {RightLabel = "→"}, true, {
                             onActive = function()
-                                heading = heading + 0.02
-                                SetEntityHeading(entity, heading)
+                                if v.model ~= "motorcycles" then
+                                    heading = heading + 0.02
+                                    SetEntityHeading(entity, heading)
+                                end
                                 if car == false then
                                     RequestModel(GetHashKey(v.model))
                                     while not HasModelLoaded(GetHashKey(v.model)) do 
