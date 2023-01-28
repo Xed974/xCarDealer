@@ -162,7 +162,7 @@ local function MenuConcessionnaire()
                                             SetPedIntoVehicle(PlayerPedId(), car, -1)
                                             RageUI.CloseAll()
                                             FreezeEntityPosition(PlayerPedId(), false)
-                                            TriggerServerEvent("xKeys:addKeys", GetVehicleNumberPlateText(car), GetDisplayNameFromVehicleModel(GetEntityModel(car)))
+                                            --TriggerServerEvent("xKeys:addKeys", GetVehicleNumberPlateText(car), GetDisplayNameFromVehicleModel(GetEntityModel(car)))
                                         end
                                     end, vehicle, tonumber(v.price))
                                 end
@@ -180,6 +180,7 @@ local function MenuConcessionnaire()
                                             SetPedIntoVehicle(PlayerPedId(), car, -1)
                                             RageUI.CloseAll()
                                             FreezeEntityPosition(PlayerPedId(), false)
+                                            --TriggerServerEvent("xKeys:addKeys", GetVehicleNumberPlateText(car), GetDisplayNameFromVehicleModel(GetEntityModel(car)))
                                         end
                                     end, vehicle, tonumber(v.price))
                                 end
